@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TypesProprietes index{% endblock %}
+
+{% block body %}
+    <h1>TypesProprietes index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for types_propriete in types_proprietes %}
+            <tr>
+                <td>{{ types_propriete.id }}</td>
+                <td>{{ types_propriete.nom }}</td>
+                <td>
+                    <a href="{{ path('app_types_proprietes_show', {'id': types_propriete.id}) }}">show</a>
+                    <a href="{{ path('app_types_proprietes_edit', {'id': types_propriete.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_types_proprietes_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Proprietes index{% endblock %}
+
+{% block body %}
+    <h1>Proprietes index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Description</th>
+                <th>Prix</th>
+                <th>Adresse</th>
+                <th>Surface</th>
+                <th>Types</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for propriete in proprietes %}
+            <tr>
+                <td>{{ propriete.id }}</td>
+                <td>{{ propriete.nom }}</td>
+                <td>{{ propriete.description }}</td>
+                <td>Ar {{ propriete.prix }}</td>
+                <td>{{ propriete.adresse }}</td>
+                <td>{{ propriete.surface }} m2</td>
+                <td>{{ propriete.typesProprietes.nom }}</td>
+                <td>
+                    <a href="{{ path('app_proprietes_show', {'id': propriete.id}) }}">show</a>
+                    <a href="{{ path('app_proprietes_edit', {'id': propriete.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_proprietes_new') }}">Create new</a>
+{% endblock %}

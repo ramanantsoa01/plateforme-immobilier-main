@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New CandidaturesLocations{% endblock %}
+
+{% block body %}
+    <h1>Create new CandidaturesLocations</h1>
+
+    {{ include('candidatures_locations/_form.html.twig') }}
+
+    <a href="{{ path('app_candidatures_locations_index') }}">back to list</a>
+{% endblock %}

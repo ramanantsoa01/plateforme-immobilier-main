@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}CandidaturesLocations{% endblock %}
+
+{% block body %}
+    <h1>CandidaturesLocations</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ candidatures_location.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom_complet</th>
+                <td>{{ candidatures_location.nomComplet }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ candidatures_location.email }}</td>
+            </tr>
+            <tr>
+                <th>Telephone</th>
+                <td>{{ candidatures_location.telephone }}</td>
+            </tr>
+            <tr>
+                <th>Statut</th>
+                <td>{{ candidatures_location.statut }}</td>
+            </tr>
+            <tr>
+                <th>Date_location</th>
+                <td>{{ candidatures_location.dateLocation ? candidatures_location.dateLocation|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Duree_location</th>
+                <td>{{ candidatures_location.dureeLocation }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_candidatures_locations_index') }}">back to list</a>
+
+    <a href="{{ path('app_candidatures_locations_edit', {'id': candidatures_location.id}) }}">edit</a>
+
+    {{ include('candidatures_locations/_delete_form.html.twig') }}
+{% endblock %}

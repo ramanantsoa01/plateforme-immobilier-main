@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+
+<header class="header">
+        <div>
+            <h1>Bienvenue sur notre site immobilier</h1>
+            <form class="search-form" action="/recherche" method="get">
+                <input type="text" name="query" placeholder="Rechercher des propriétés...">
+                <button type="submit">Recherche</button>
+            </form>
+        </div>
+    </header>
+
+    <div class="row">
+                {# {% for advert in adverts %} #}
+                    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 mb-4">
+                        <div class="card w-100 overflow-hidden rounded-4 border-0">
+                            <div class="card-head">
+                                <div class="badge-card d-flex align-items-center justify-content-center">
+                                    <div class="caption-xsm">Visite</div>
+                                    {# <img src="{{ asset("build/images/bien/360.svg") }}" alt="360°"> #}
+                                </div>
+                                {# {% if advert.pictures is not empty %} #}
+                                    <img src="" data-rjs="3"  class="w-100 h-auto card-img-top" alt="ILL-image">
+                                {# {% endif %} #}
+                            </div>
+
+                            <div class="card-body text-center bg-gray-100" style="position: relative;">
+                                <div class="card-avatar">
+                                    <img src="" data-rjs="3"  class="rounded-circle" alt="ILL-image" style="width: 50px; height: 50px;">
+                                </div>
+                                <p class="text-base card-text caption-lg" style="margin-top: 20px;"> pièces •  m² • Meublé</p>
+                                <p class="card-text caption-sm text-gray-400"></p>
+                                <h4 class="card-title text-gray-400">Ar cc</h4>
+                            </div>
+                        </div>
+
+                        
+                    </div>
+                {# {% endfor %} #}
+            </div>
+
+{% endblock %}

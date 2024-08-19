@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="{{ app.request.locale }}">
+    <head>
+        <meta charset="{{ _charset }}">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <meta name="robots" content="index,follow" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <link rel="icon" href="{{ asset('build/images/logo_white.png') }}">
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+            {% block importmap %}{{ importmap('app') }}{% endblock %}
+        {% endblock %}
+    </head>
+    <body>
+    {% include "partials/navbar.html.twig" %}
+        {% block body %}{% endblock %}
+    </body>
+</html>

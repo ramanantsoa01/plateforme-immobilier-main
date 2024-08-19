@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TypesProprietes{% endblock %}
+
+{% block body %}
+    <h1>TypesProprietes</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ types_propriete.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ types_propriete.nom }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_types_proprietes_index') }}">back to list</a>
+
+    <a href="{{ path('app_types_proprietes_edit', {'id': types_propriete.id}) }}">edit</a>
+
+    {{ include('types_proprietes/_delete_form.html.twig') }}
+{% endblock %}

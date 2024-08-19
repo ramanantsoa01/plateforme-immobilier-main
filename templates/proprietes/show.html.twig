@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Proprietes{% endblock %}
+
+{% block body %}
+    <h1>Proprietes</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ propriete.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ propriete.nom }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ propriete.description }}</td>
+            </tr>
+            <tr>
+                <th>Prix</th>
+                <td>Ar {{ propriete.prix }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ propriete.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Surface</th>
+                <td>{{ propriete.surface }} m2</td>
+            </tr>
+            <tr>
+                <th>Types</th>
+                <td>{{ propriete.typesProprietes.nom }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_proprietes_index') }}">back to list</a>
+    
+    {% if propriete.typesProprietes.nom == "Locations" %}
+        <a href="#" data-bs-toggle="modal" data-bs-target="#candidatureLocationModal">postuler</a>
+    {% endif %}
+
+    <a href="{{ path('app_proprietes_edit', {'id': propriete.id}) }}">edit</a>
+
+    {{ include('proprietes/_delete_form.html.twig') }}
+
+    {% if propriete.typesProprietes.nom == "Locations" %}
+        <div class="modal fade" id="candidatureLocationModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="candidatureLocationModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title fs-5" id="candidatureLocationModalLabel">Candidature</h2>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        {{ form_start(formLocation) }}
+                            {{ form_widget(formLocation) }}
+                            <button class="btn btn-primary">{{ button_label|default('Envoyer') }}</button>
+                            <button class="btn btn-primary" data-bs-dismiss="modal">Annuler</button>
+                        {{ form_end(formLocation) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
+
+{% endblock %}
